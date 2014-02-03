@@ -25,21 +25,14 @@ module.exports = function (grunt) {
             test: {
                 src: ['test/**/*.js']
             }
-        },
-        watch: {
-            test: {
-                files: ['lib/*.js', 'test/*.js'],
-                tasks: ['jshint', 'jasmine_node']
-            }
         }
     });
 
     // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-jasmine-node');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-mocha-test');
 
     // Default task.
-    grunt.registerTask('default', ['jshint', 'jasmine_node']);
+    grunt.registerTask('default', ['jshint', 'mochaTest:test']);
 
 };

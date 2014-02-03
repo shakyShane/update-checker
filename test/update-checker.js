@@ -1,7 +1,7 @@
 var updateCheck = require("../lib/index.js");
 var fs = require("fs");
 var assert = require("chai").assert;
-var sinon = require("sinon");
+//var sinon = require("sinon");
 
 describe("Comparing versions", function () {
 
@@ -59,7 +59,6 @@ describe("Extracting the latest version from json response", function () {
         assert.equal(actual, expected);
     });
     it("should return false if it cannot parse the resp", function () {
-        var expected = "0.5.4";
         var actual = updateCheck.extractVersion("wetgwrtg456556534");
         assert.isFalse(actual);
     });
@@ -72,6 +71,18 @@ describe("Constructing the exec command", function () {
     });
     it("can reject incorrect package names", function () {
         var actual = updateCheck._constructCommand("package\"name");
+        assert.isFalse(actual);
+    });
+    it("can reject incorrect package names", function () {
+        var actual = updateCheck._constructCommand("package'name");
+        assert.isFalse(actual);
+    });
+    it("can reject incorrect package names", function () {
+        var actual = updateCheck._constructCommand("package~name");
+        assert.isFalse(actual);
+    });
+    it("can reject incorrect package names", function () {
+        var actual = updateCheck._constructCommand("package name");
         assert.isFalse(actual);
     });
 });

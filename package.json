@@ -28,21 +28,14 @@
     "test": "grunt"
   },
   "dependencies": {
-    "lodash": "~2.2.1",
     "q": "1.0.0"
-
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.4",
-    "grunt-contrib-watch": "~0.5.3",
     "grunt": "~0.4.1",
-    "grunt-jasmine-node": "~0.1.0",
     "chai": "~1.8.1",
     "sinon": "~1.7.3",
     "grunt-mocha-test": "~0.8.2"
   },
-  "keywords": [],
-  "bin": {
-    "dev-ip": "lib/dev-ip.js"
-  }
+  "keywords": []
 }
