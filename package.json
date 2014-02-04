@@ -1,7 +1,7 @@
 {
   "name": "update-checker",
   "description": "Check the NPM registry for package updates",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/shakyshane/update-checker",
   "author": {
     "name": "Shane Osbourne",
