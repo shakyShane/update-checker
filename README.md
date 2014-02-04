@@ -1,31 +1,30 @@
-# dev-ip [![Build Status](https://travis-ci.org/shakyShane/dev-ip.png?branch=master)](https://travis-ci.org/shakyShane/dev-ip)
+# update-checker [![Build Status](https://travis-ci.org/shakyShane/update-checker.png?branch=master)](https://travis-ci.org/shakyShane/update-checker)
 
-Find a suitable IP host to view local websites on.
+Check if there's an update available for a package on NPM.
 
-## Command line
-Install it globally to use on the command line:
+## Install
+`npm install update-checker`
 
-`sudo npm install -g dev-ip`
+##API
+**updateChecker.checkForUpdate(packageName, installedVersion)**
 
-then run:
-
-`dev-ip`
-
-> "try this: http://192.168.1.46"
-
-## In your project
-`npm install dev-ip`
+##Example
 
 ```javascript
-var dev_ip = require('dev-ip');
-dev_ip.getIp(); // "192.168.1.76" or false if nothing found (ie, offline user)
+var updateChecker = require("update-checker");
+var pkgJson = require("package.json");
+
+updateChecker.checkForUpdate("browser-sync", pkgJson.version).then(function (newer) {
+    if (newer) {
+        // There's a newer version available
+        // Prompt your users to upgrade.
+    } else {
+        // Package is up-to-date
+    }
+}).fail(function (errorMsg) {
+    console.log(errorMsg);
+});
 ```
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
 
 ## License
 Copyright (c) 2013 Shane Osbourne
